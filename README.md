@@ -19,7 +19,8 @@ coefficient (lam). Parameters are updated via SGD+Adagrad. See train_record.txt 
 
 *Pytorch_model.pkl:* The trained MLP (using Pytorch). 
 
-*command:* 
+*command to run the file* 
+
 python train.py
 
 python train_byPytorch.py
