@@ -2,7 +2,7 @@
 
 This is the first project: to create a two-layer MLP for classification of MNIST images.
 
-model.py: We define the class of MLP and some useful functions.
+*model.py*: We define the class of MLP and some useful functions.
 
 data_process.py: Load the MNIST dataset. Transform images to feature vectors and divide them into train/valid/test set.
 
