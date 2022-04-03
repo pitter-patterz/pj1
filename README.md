@@ -21,6 +21,8 @@ coefficient (lam). Parameters are updated via SGD+Adagrad. See train_record.txt 
 
 *command:* 
 python train.py
+
 python train_byPytorch.py
+
 python test.py
 
