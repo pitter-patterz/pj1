@@ -1,4 +1,4 @@
-# pj1
+# Introduction
 
 This is the first project: to create a two-layer MLP for classification of MNIST images.
 
@@ -19,7 +19,9 @@ coefficient (lam). Parameters are updated via SGD+Adagrad. See train_record.txt 
 
 *Pytorch_model.pkl:* The trained MLP (using Pytorch). 
 
-# commands to run the file
+Models can be downloaded from https://pan.baidu.com/s/1RFic9wP8qg-5Ov7JhBX1CA?pwd=sjwl  (password: sjwl).
+
+# Usage
 
 python train.py
 
