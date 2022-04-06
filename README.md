@@ -17,7 +17,7 @@ coefficient (lam). Parameters are updated via SGD+Adagrad. See train_record.txt 
 
 *model.pickel:* The trained MLP (using numpy).
 
-*Pytorch_model.pkl:* The trained MLP (using Pytorch). 
+*model_Pytorch.pkl:* The trained MLP (using Pytorch). 
 
 Models can be downloaded from https://pan.baidu.com/s/1RFic9wP8qg-5Ov7JhBX1CA?pwd=sjwl  (password: sjwl).
 
