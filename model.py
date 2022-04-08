@@ -1,6 +1,6 @@
 
 """
-sigmoid(),relu(),tanh(): three activation functions. Here we use sigmoid().
+sigmoid(),relu(),tanh(): three activation functions. Here we use relu().
 cal_acc(): compute the accuracy of classification.
 
 """
@@ -11,7 +11,7 @@ def sigmoid(x):
     return 1/(1+np.exp(-x))
 
 def relu(x):
-    return np.max(0,x)
+    return np.maximum(0.0,x)
 
 def tanh(x):
     return np.tanh(x)
@@ -25,7 +25,7 @@ def cal_acc(yhat,y):
 
 class mlp():
     
-    def __init__(self,dimx=784,dimy=10,h1=128,v=10e-3,lam=1e-4):
+    def __init__(self,dimx=784,dimy=10,h1=128,v=10e-3,lam=1e-4,p=0.95):
 
         """
         h1 = dimension of the hidden layer
@@ -33,16 +33,17 @@ class mlp():
         v = (initial) learning rate
         lam = coefficient of L2-regularization 
         cdw1,cdw2,cdb1,cdb2 = cumulative gradient
+        p = probability of keeping a neuron = 1-drop_out_rate
         
         """
 
         self.dimx,self.dimy = dimx,dimy 
         self.h1 = h1 
       
-        self.w1 = np.random.uniform(-.1,.1,(dimx,h1))
-        self.b1 = np.random.uniform(-.1,.1,(1,h1))
-        self.w2 = np.random.uniform(-.1,.1,(h1,dimy))
-        self.b2 = np.random.uniform(-.1,.1,(1,dimy))
+        self.w1 = np.random.uniform(-.1,.1,(dimx,h1))+1e-4
+        self.b1 = np.random.uniform(-.1,.1,(1,h1))+1e-4
+        self.w2 = np.random.uniform(-.1,.1,(h1,dimy))+1e-4
+        self.b2 = np.random.uniform(-.1,.1,(1,dimy))+1e-4
         
         self.v,self.lam = v,lam
         
@@ -51,12 +52,16 @@ class mlp():
         self.cdw2 = np.zeros((h1,dimy))
         self.cdb2 = np.zeros((1,dimy))
         
+        self.p = p
     
     def forward(self,x):
         
         n = x.shape[0]
         z1 = x.dot(self.w1)+self.b1
-        a1 = sigmoid(z1)
+        a1 = relu(z1)
+        
+        a1 *= self.p
+        
         z2 = a1.dot(self.w2)+self.b2
         e = np.exp(z2)
         sume = np.sum(e,axis=1).reshape(n,1)  
@@ -81,7 +86,11 @@ class mlp():
         y0 = y[i,0]
         
         z1 = x0.dot(self.w1)+self.b1
-        a1 = sigmoid(z1)
+        a1 = relu(z1)
+                
+        dropif = np.random.rand(*a1.shape) < self.p
+        a1 *= dropif
+        
         z2 = a1.dot(self.w2)+self.b2  
         e = np.exp(z2)
         sume = np.sum(e)
@@ -93,7 +102,9 @@ class mlp():
         dw2 = a1.T.dot(delta)
         db2 = np.sum(delta,axis=0,keepdims=True)
         
-        delta = (delta.dot(self.w2.T)) * (a1-a1**2)
+        relu_grad = (a1>0).reshape(a1.shape)
+        
+        delta = (delta.dot(self.w2.T)) * (relu_grad)
         
         dw1 = x0.T.dot(delta)
         db1 = np.sum(delta,axis=0,keepdims=True)
@@ -118,5 +129,3 @@ class mlp():
         pickle.dump(self,f)
         f.close()
     
-
-            
