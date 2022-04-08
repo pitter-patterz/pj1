@@ -1,5 +1,5 @@
 """
-Train a MLP within 1000 epochs. 
+Train a MLP within 200 epochs. 
 Use grid search to determine the tuning parameters.
 """
 
@@ -35,8 +35,8 @@ def train(h1,v,lam):
     return losses,accs,m
 
 
-for v in [10e-3]:
-    for lam in [1e-4]:
+for v in [7e-3,8e-3,10e-3]:
+    for lam in [1e-4,5e-4,10e-4]:
         for h1 in [32,64,128]:            
             tune = (h1,v,lam)
             
@@ -52,6 +52,6 @@ for v in [10e-3]:
             print('Best accuracy on validation data',max(accs))
             # print('Best accuracy on validation data',max(accs),file=f)
             
-            f.close()
+            # f.close()
             
 # m.save('.pickle')
