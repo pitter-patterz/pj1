@@ -13,21 +13,6 @@ def addcol(x,t):
         x0 = np.hstack((x0,x))
     return x0
 
-
-def tosquare(x,t):
-    x0 = x.copy()
-    S = []
-    i = 0
-    while True:
-        if i+t >= x0.shape[0]:
-            break
-        xx = x0[i:i+t,:]
-        S.append(np.sum(xx,axis=0))
-        i += t
-    S = np.asarray(S)
-    return S
-
-
 print('\nWe implement heatmap to visualize the parameters of MLP---\n')
 time.sleep(1)
 
