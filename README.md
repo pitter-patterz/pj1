@@ -19,7 +19,7 @@ coefficient (lam). Parameters are updated via SGD+Adagrad. See train_record.txt 
 
 *model_Pytorch.pkl:* The trained MLP (using Pytorch). 
 
-Models can be downloaded from   (password: sjwl).
+Models can be downloaded from https://pan.baidu.com/s/1fLbs9rh4dFOmK6e921Gslg?pwd=sjwl (password: sjwl).
 
 # Usage
 
