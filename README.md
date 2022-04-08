@@ -13,13 +13,13 @@ coefficient (lam). Parameters are updated via SGD+Adagrad. See train_record.txt 
 
 *test.py:* We compute the accuracy of our model on the test dataset, with comparison to other machine learning algorithms. We also examine some of the misclassified images.
 
-*visualize.py:*
+*vis.py:* We use heat matrix to visualize the model parameters and input/output of the hidden layer.
 
 *model.pickel:* The trained MLP (using numpy).
 
 *model_Pytorch.pkl:* The trained MLP (using Pytorch). 
 
-Models can be downloaded from https://pan.baidu.com/s/1RFic9wP8qg-5Ov7JhBX1CA?pwd=sjwl  (password: sjwl).
+Models can be downloaded from   (password: sjwl).
 
 # Usage
 
@@ -28,4 +28,6 @@ python train.py
 python train_byPytorch.py
 
 python test.py
+
+python vis.py
 
