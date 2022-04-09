@@ -80,7 +80,8 @@ for i in range(4):
     img = x.reshape(28,28)
     
     z1 = x.dot(m.w1)+m.b1
-    a1 = sigmoid(z1)
+    a1 = relu(z1)
+    a1 *= m.p
     z2 = a1.dot(m.w2)+m.b2
     e = np.exp(z2)
     sume = np.sum(e,axis=1)
