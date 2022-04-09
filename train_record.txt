@@ -1,4 +1,6 @@
 
+# Note that the loss and accuracy here is computed on the validation dataset.
+
 Tuning Parameters (h1,v,lam): (128, 0.01, 0.0001)
 epoch: 0 loss: 81.23185187326293 accuracy: 0.1382
 epoch: 1 loss: 1.0175243574702628 accuracy: 0.8383
