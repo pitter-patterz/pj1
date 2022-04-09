@@ -19,7 +19,7 @@ def train(h1,v,lam):
     m = mlp(dimx=dimx,dimy=dimy,h1=h1,v=v,lam=lam)
     losses,accs = [],[]
     
-    for epoch in range(1000):
+    for epoch in range(200):
           
         yhat = m.forward(xte)
         accuracy = cal_acc(yhat,yte)
