@@ -22,6 +22,7 @@ def train(h1,v,lam):
           
         yhat = m.forward(xv)
         accuracy = cal_acc(yhat,yv)
+        accuracy = round(accuracy,4)
         loss = m.cal_loss(xv,yv)
         losses.append(loss)
         accs.append(accuracy)
