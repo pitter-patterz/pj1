@@ -12,7 +12,7 @@ with open('model.pickle','rb') as file:
     
 yhat = mlp.forward(xte)
 accuracy = cal_acc(yhat,yte)
-print('\n\nAccuracy of MLP',accuracy)
+print('\n\nAccuracy of MLP (model.pickle)',accuracy)
 
 label = np.argsort(yhat)[:,-1].reshape(n,1)
 err_index = [i for i in range(n) if label[i,0]!=yte[i,0]]
@@ -55,4 +55,4 @@ mlp_Pytorch = torch.load('model_Pytorch.pkl')
 
 xte,yte = torch.tensor(xte).float(),torch.tensor(yte).long().squeeze()  
 accuracy = torch_acc(xte,yte,mlp_Pytorch)
-print('\n\nAccuracy of MLP (trained by Pytorch)',accuracy)
+print('\n\nAccuracy of MLP (model_Pytorch.pkl, trained by Pytorch)',accuracy)
