@@ -21,9 +21,9 @@ def train(h1,v,lam):
     
     for epoch in range(200):
           
-        yhat = m.forward(xte)
-        accuracy = cal_acc(yhat,yte)
-        loss = m.cal_loss(xte,yte)
+        yhat = m.forward(xv)
+        accuracy = cal_acc(yhat,yv)
+        loss = m.cal_loss(xv,yv)
         losses.append(loss)
         accs.append(accuracy)
         print('epoch:',epoch,'loss:',loss,'accuracy:',accuracy)
