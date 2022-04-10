@@ -34,7 +34,7 @@ def train(h1,v,lam):
              
     return losses,accs,m
 
-
+print('\n Start training...Press Enter if the results are not printed.')
 for v in [7e-3,8e-3,10e-3]:
     for lam in [1e-4,5e-4,10e-4]:
         for h1 in [32,64,128]:            
