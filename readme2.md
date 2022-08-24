@@ -10,7 +10,4 @@ The following files are provided.
 
 *bank_data.xlsx*: Data of bank returns and macro-economic variables.
 
-
-
-
-
+See annotation in the four .py code files for more details. Thanks for your reviewing.
