@@ -1,6 +1,6 @@
 The following files are provided.
 
-*tir.py & eviboost.py:* Two models (TIR and EVIboost respectively) for the estimation of extreme value index.
+- *tir.py & eviboost.py:* Two models (TIR and EVIboost respectively) for the estimation of extreme value index.
 
 *simulation.py*: Programmes to do simulation study (section 3).
 
