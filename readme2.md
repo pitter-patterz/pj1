@@ -1,7 +1,7 @@
 The following files are provided.
 
 
-*tir.py & eviboost.py:* Two models (TIR and EVIboost) for estimation of extreme values index.
+*tir.py & eviboost.py:* Two models (TIR and EVIboost respectively) for the estimation of extreme value index.
 
 
 
